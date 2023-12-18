@@ -18,7 +18,6 @@ int solve(int n, string s) {
 }
 
 int main() {
-    // delete this in submission
     #ifndef ONLINE_JUDGE
         freopen("input.txt", "r", stdin);
         freopen("output.txt", "w", stdout);
@@ -30,8 +29,6 @@ int main() {
     int n;
     string s;
 
-    // cin >> n >> s;
-    // cout << solve(n, s);
     while (cin >> n >> s) {
         cout << solve(n, s) << endl;
     }
