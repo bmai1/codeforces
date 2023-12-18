@@ -1,6 +1,7 @@
 .vscode
 
 *.txt
+*.out
 
 .DS_Store
 Icon?
