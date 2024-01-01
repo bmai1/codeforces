@@ -13,16 +13,15 @@ int main() {
     for (int i = 0; i < t; ++i) {
         int n;
         cin >> n;
-        int sum = 0;
+        long long sum = 0;
         for (int j = 0; j < n; ++j) {
-            int in;
+            long long in;
             cin >> in;
             sum += in;
         }
-        int s = sqrt(sum);
+        long long s = sqrt(sum);
         if (s * s == sum) cout << "YES";
         else cout << "NO";
         cout << endl;
-
     }
 }
