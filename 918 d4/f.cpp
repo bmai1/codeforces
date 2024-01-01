@@ -1,8 +1,34 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+ 
+typedef __gnu_pbds::tree<int, __gnu_pbds::null_type, less<int>, __gnu_pbds::rb_tree_tag, __gnu_pbds::tree_order_statistics_node_update> ordered_set;
+
+int n;
+vector<pair<int,int>> a;
+ordered_set s;
+
 void solve() {
+    cin >> n;
     
+    s.clear();
+    a.assign(n, {});
+    long long res = 0;
+
+    for (auto &p : a) {
+        cin >> p.second >> p.first;
+    }
+
+    sort(a.begin(), a.end());
+
+    for (auto p : a) {
+        res += s.size() - s.order_of_key(p.second);
+        s.insert(p.second);
+    }
+
+    cout << res << endl;
 }
 
 int main() {
@@ -12,28 +38,9 @@ int main() {
     #endif
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
-    int t;
-    cin >> t;
-    int n, a, b;
-    for (int i = 0; i < t; ++i) {
-        vector<pair<int, int>> ab;
-        int greetings = 0;
-        cin >> n; 
-        for (int j = 0; j < n; ++j) {
-            cin >> a >> b;
-            ab.push_back({a, b});
-        }
-        sort(ab.begin(), ab.end(), [](pair<int, int> &x, pair<int, int>& y) {
-            return x.first < y.first;
-        });
-        for (int j = 0; j < ab.size(); ++j) {
-            for (int k = j + 1; k < ab.size(); ++k) {
-                if (ab[k].second <= ab[j].second) {
-                    ++greetings;
-                }
-            }
-        }
-        cout << greetings << endl;
+    
+    int t; cin >> t;
+    while (t--) {
+        solve();
     }
-    // cout << solve();
 }
